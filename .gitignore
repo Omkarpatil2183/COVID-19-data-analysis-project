@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+
+# Large files or datasets
+*.csv
+!covid_data.csv  # Allow this specific dataset
+!cleaned_covid_data.csv
