@@ -10,24 +10,18 @@ print("Dataset Preview:")
 print(data.head())
 
 # Handle missing values
-# Replace missing values in 'Recovered' with 0
 data['Recovered'].fillna(0, inplace=True)
 
-# Convert 'Date' to datetime format
 data['Date'] = pd.to_datetime(data['Date'])
 
-# Check for missing values after cleaning
 print("\nMissing Values:")
 print(data.isnull().sum())
 
-# Calculate basic statistics
 print("\nSummary Statistics:")
 print(data.describe())
 
-# Add a new column: Active Cases = Confirmed - (Recovered + Deceased)
 data['Active'] = data['Confirmed'] - (data['Recovered'] + data['Deceased'])
 
-# Save the cleaned dataset
 data.to_csv('cleaned_covid_data.csv', index=False)
 print("\nCleaned dataset saved as cleaned_covid_data.csv")
 
